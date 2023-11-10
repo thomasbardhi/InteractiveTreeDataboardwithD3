@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree Analysis D3.js Dashboard</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <h1>Tree Analysis in Lawerence, Ma</h1>
+    <h1>By Thomas Bardhi</h1>
+    <div class="text-box">
+      <h2>Welcome to the Lawrence Tree Dashboard!</h2>
+      <p>
+        This dynamic dashboard is crafted with data from the urban forest of
+        Lawrence. Here's what you can explore:
+      </p>
+      <ul>
+        <li>
+          <strong>Geospatial Map:</strong> A detailed map pinpointing every tree
+          in Lawrence. Overlay it with a heatmap for a vivid depiction of tree
+          density.You can also use the select feature to filter by year
+        </li>
+        <li>
+          <strong>Interactive Charts:</strong> Start by <em>brushing</em> across
+          the dashboard. This interaction will reveal:
+        </li>
+        <ul>
+          <li>
+            A <strong>Bar Chart</strong> illustrating the frequency of various
+            tree diameters.
+          </li>
+          <li>A <strong>Nested Pie Chart</strong> differentiating between:</li>
+          <ul>
+            <li>
+              <span style="color: red"
+                ><strong>Medium to Large Trees:</strong></span
+              >
+              Red slice for trees with a diameter of 3 feet or more. The outer
+              pie shows species counts.
+            </li>
+            <li>
+              <span style="color: blue"><strong>Small Trees:</strong></span>
+              Blue slice for trees with a smaller diameter. You’ll see species
+              and their counts for this category too.
+            </li>
+          </ul>
+        </ul>
+      </ul>
+      <p>
+        Interact with the dashboard and uncover the story of Lawrence’s trees.
+        See how different species contribute to the canopy and discover the
+        distribution of tree sizes.
+      </p>
+    </div>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="map-title">Geospatial Rending of The Trees</h1>
+      <div id="map"></div>
+
+      <div class="map-overlay">
+        <input type="checkbox" id="heatmapToggle" checked />
+        <label for="heatmapToggle">Toggle Heatmap</label>
+        <select id="year-filter">
+          <option value="">Select a year</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="all">all</option>
+        </select>
+      </div>
+      <div class="charts-container">
+        <div id="bar"></div>
+        <div id="pie"></div>
+      </div>
+    </div>
+    <script type="module" src="./map.js"></script>
+  </body>
+</html>
